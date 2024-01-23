@@ -20,8 +20,16 @@ const md = markdownit({
 
 class MarkDown extends DataroomElement {
   async initialize(){
+    this.dtrm_id = this.getAttribute('dtrm-id');
+    this.notebook = localStorage.getItem('notebook') || 'default';
+
     try {
-      const data = await this.fetchData();
+      const fetched_data = await this.fetch(`/get-notebook-page`, {
+        notebook: this.notebook, 
+        dtrmId: this.dtrm_id
+      });
+      const data = fetched_data.content
+      console.log(data);
       const content = removeFrontMatter(data);
       this.metadata = parseJSONFrontmatter(data);
       this.renderMarkdown(content);
