@@ -1,12 +1,10 @@
 
 mark-down {
   display: block;
+  max-width: 40em;
+  margin: auto;
 }
 
-hash-tag {
-  color: var(--dark-color);
-  background-color: var(--highlight-color);
-}
 
 link-tag {
   color: var(--dark-color);
