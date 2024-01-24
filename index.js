@@ -1,5 +1,6 @@
 import { DataroomElement }  from '/dataroom-element.js';
 import { hljs } from "./vendor/highlight/highlight.min.js";
+import './vendor/mermaid.min.js';
 import "./vendor/markdown-it.min.js";
 import { wrapHashtags } from './hash-tag.js';
 import { removeFrontMatter, parseJSONFrontmatter } from './front-matter.js';
@@ -8,6 +9,7 @@ const md = markdownit({
   breaks: true,
   linkify: true,
   highlight: function (str, lang) {
+
     if (lang && hljs.getLanguage(lang)) {
       try {
         return hljs.highlight(str, { language: lang }).value;
@@ -16,6 +18,25 @@ const md = markdownit({
     return ''; // use external default escaping
   }
 });
+
+mermaid.initialize({ 
+  startOnLoad: false,   
+  theme: 'base', // 'base' is the default theme that is monochrome
+ 'themeVariables': {
+      'darkMode': 'true',
+      'backgroundColor': '#555555',
+      'primaryColor': '#ffffff',
+      'primaryTextColor': '#fff',
+      'primaryBorderColor': '#555555',
+      'lineColor': '#aaaaaa',
+      'secondaryColor': '#aaaaaa',
+      'tertiaryColor': '#999999',
+      'fontFamily':'Atkinson Hyperlegible',
+      'fontSize':'12px'
+    }
+});
+
+
 
 
 class MarkDown extends DataroomElement {
@@ -29,10 +50,13 @@ class MarkDown extends DataroomElement {
         dtrmId: this.dtrm_id
       });
       const data = fetched_data.content
-      console.log(data);
       const content = removeFrontMatter(data);
       this.metadata = parseJSONFrontmatter(data);
       this.renderMarkdown(content);
+      await mermaid.run({
+        querySelector: '.language-mermaid',
+      });
+
     } catch(e){
       console.error('ERROR', e);
       this.innerHTML = 'ERROR, please check console';
