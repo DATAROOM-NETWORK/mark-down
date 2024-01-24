@@ -22,18 +22,18 @@ const md = markdownit({
 mermaid.initialize({ 
   startOnLoad: false,   
   theme: 'base', // 'base' is the default theme that is monochrome
- 'themeVariables': {
-      'darkMode': 'true',
-      'backgroundColor': '#555555',
-      'primaryColor': '#ffffff',
-      'primaryTextColor': '#fff',
-      'primaryBorderColor': '#555555',
-      'lineColor': '#aaaaaa',
-      'secondaryColor': '#aaaaaa',
-      'tertiaryColor': '#999999',
-      'fontFamily':'Atkinson Hyperlegible',
-      'fontSize':'12px'
-    }
+  themeVariables: {
+    darkMode: 'true',
+    backgroundColor: '#555555',
+    primaryColor: '#ffffff',
+    primaryTextColor: '#fff',
+    primaryBorderColor: '#555555',
+    lineColor: '#aaaaaa',
+    secondaryColor: '#aaaaaa',
+    tertiaryColor: '#999999',
+    fontFamily: 'Atkinson Hyperlegible',
+    fontSize: '12px'
+  }
 });
 
 
