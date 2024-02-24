@@ -1,3 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="./index.css">
+  <script type="module" src="index.js"></script>
+  <title>Mark Down Component</title>
+</head>
+<body>
+
+  <mark-down>
 # Markdown and Mermaid Renderer for Dataroom
 
 This library provides a custom web component, `<mark-down>`, that renders Markdown content with support for syntax highlighting via Highlight.js and diagram rendering with Mermaid. It's designed for seamless integration into web projects, enabling the rich display of textual content alongside dynamic diagrams and code snippets.
@@ -32,24 +44,23 @@ import DataroomElement from 'path/to/dataroom-element.js';
 
 1. Include the `<mark-down>` element in your HTML.
 
-```html
-<mark-down>
-  # Markdown Content Here
-  ```javascript
-  // Your code here
-  ```
-  ```mermaid
-  graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-  ```
-</mark-down>
+```javascript
+// Your code here
 ```
+```mermaid
+pie title NETFLIX
+         "Time spent looking for movie" : 90
+         "Time spent watching it" : 10
 
+```
+  
 2. The content within the `<mark-down>` tag will automatically be rendered as HTML, with code blocks highlighted and Mermaid diagrams rendered.
 
 ## Customization
 
 You can customize the appearance and behavior of the Mermaid diagrams by adjusting the `mermaid.initialize` configuration in `dataroom-element.js`. For more details, refer to the [Mermaid documentation](https://mermaid-js.github.io/mermaid/#/).
+
+  </mark-down>
+
+</body>
+</html>
