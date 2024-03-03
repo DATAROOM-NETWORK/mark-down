@@ -1,6 +1,20 @@
-# Markdown and Mermaid Renderer for Dataroom
+# Markdown Component
 
 This library provides a custom web component, `<mark-down>`, that renders Markdown content with support for syntax highlighting via Highlight.js and diagram rendering with Mermaid. It's designed for seamless integration into web projects, enabling the rich display of textual content alongside dynamic diagrams and code snippets.
+
+## How to use
+
+Include the index.js and index.css files into your site:
+
+```html
+<script type="module" src="https://dataroom-network.github.io/mark-down/index.js"></script>
+<link rel="stylesheet" type="text/css" href="https://dataroom-network.github.io/mark-down/index.css">
+
+<mark-down>
+
+# Markdown Content Here
+</mark-down>
+```
 
 ## Features
 
@@ -10,25 +24,6 @@ This library provides a custom web component, `<mark-down>`, that renders Markdo
 - **Customizable:** Supports customization of Mermaid themes and initialization options.
 - **Hashtag Wrapping:** Includes functionality to wrap hashtags within the rendered content for additional processing or styling.
 
-## Installation
-
-To use this component in your project, follow these steps:
-
-1. Clone this repository to your local machine.
-
-```bash
-git clone git@github.com:DATAROOM-NETWORK/mark-down.git
-```
-
-2. Import the main module, `dataroom-element.js`, into your project.
-
-```javascript
-import DataroomElement from 'path/to/dataroom-element.js';
-```
-
-3. Ensure that the vendor scripts for `highlight.js`, `mermaid`, and `markdown-it` are included in your project. These are required dependencies for rendering functionality.
-
-## Usage
 
 1. Include the `<mark-down>` element in your HTML.
 
